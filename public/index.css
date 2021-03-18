@@ -1,0 +1,177 @@
+@font-face {
+	font-family: Comfortaa;
+	src: url(Comfortaa-VariableFont_wght.ttf);
+}
+
+body, html {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	font-family: Comfortaa;
+	display: flex;
+	justify-content: center;
+	background-color: #5E807F
+}
+
+#page-content {
+	width: 90%;
+	max-height: 400px;
+	margin-top: 30px;
+}
+
+#header, #header-text {
+	color: #F4F6F6;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 64px;
+}
+
+#page-body {
+	height: 180px;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	font-size: 22px;
+}
+
+#weeks {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.week {
+	margin-bottom: 6px;
+}
+
+#about {
+
+}
+
+#open-about {
+	color: #2D2327;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#about-text {
+	font-size: 18px;
+	color: #2D2327;
+}
+
+a {
+	color: #62466B;
+}
+
+a#first {
+	color: #4e3856;
+	font-size: 24px;
+
+}
+
+#week-header {
+	font-size: 26px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: #2D2327;
+	text-decoration: none;
+}
+
+#week-puzzles {
+	display: flex;
+	flex-direction: column;
+}
+
+.puzzle {
+	margin-bottom: 6px;
+}
+
+#puzzle-content {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	color: #2D2327;
+}
+
+#puzzle-text {
+	margin-left: 10px;
+	flex: 35 1 330px;
+}
+
+#puzzle-title {
+	font-size: 24px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#puzzle-info {
+	max-width: 100%;
+}
+
+#puzzle-image {
+	width: 35%;
+	flex: 1 0 35%;
+}
+
+#puzzle-image img {
+	width: 100%;
+}
+
+.spoiler {
+	color: grey;
+	background-color: grey;
+	transition-duration: .1s;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.spoiler:hover {
+	color: darkgrey;
+	background-color: darkgrey;
+}
+
+.clicked {
+	background-color: lightgrey;
+	color: #2D2327;
+}
+
+.spoiler a {
+	color: inherit;
+	pointer-events: none;
+}
+
+.spoiler.clicked a {
+	color: #62466B;
+	pointer-events: all;
+}
+
+span.clicked:hover {
+	background-color: lightgrey;
+	color: #2D2327;
+}
+
+code {
+	display: inline-flex;
+	border-radius: 6px;
+	border: 2px solid #2D2327;
+	background-color: gray;
+	padding: 3px;
+}
+
+#puzzles {
+	color: #2D2327;
+}
+
+.puzzle span {
+	font-size: 18px;
+}
+
+#all-puzzles p {
+	margin-bottom: 0;
+}
+
+a#all-puzzles-link, a#go-back-link {
+	color: #2D2327;
+}
+
