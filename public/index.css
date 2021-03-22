@@ -37,8 +37,8 @@ body {
 }
 
 #weeks {
-	display: flex;
-	flex-direction: column-reverse;
+	column-count: 2;
+	width: max-content;
 }
 
 .week {
