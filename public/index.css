@@ -38,7 +38,9 @@ body {
 
 #weeks {
 	column-count: 2;
-	width: max-content;
+	width: 30%;
+	min-width: 300px;
+	max-width: 400px;
 }
 
 .week {
