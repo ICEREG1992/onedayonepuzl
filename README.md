@@ -20,6 +20,10 @@ Since all data in the app is manually entered, the app only deals with the minim
 
 In the case that non-integer values are needed (say, Week 6.5), we access that week using the `{number}` key in the URL queries, but once the DataSnapshot comes in, we hotswap the proper `week` value into the page. Weeks are sorted by their `week` value, not their key.
 
+## `info` Styling
+
+The string stored in the `info` attribute for each puzzle is passed through a markdown interpreter, which allows commonly-used formatting to be used in puzzle bios. In addition to most markdown formatting, you can use a `||` opening and closing token to mark a discord-style "spoiler", as well as plaintext code blocks through the usual backtick tokens. Finally, you can use a `\n` newline character to mark line breaks in puzzle bios-- these are designed to be forgiving with input into the Firebase Web Console, so `\\n` is also considered a linebreak token (Firebase Web Console likes to escape special characters on your behalf).
+
 ## Setup
 
  1. Clone the repository.
