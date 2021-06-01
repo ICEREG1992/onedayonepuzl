@@ -1,5 +1,5 @@
 # onedayonepuzl
-1d1p, or One Day One Puzl, is a "weekly" "puzzle" "challenge" where players are tasked with creating a unique puzzle in the span of 24 hours (or so). Puzzles are due on Froday night. Puzzles typically come in the form of a single square image with a title, and a small blurb which can be used to include a prompt, puzzle specifications, or a clue sequence.
+1d1p, or One Day One Puzl, is a "weekly" "puzzle" "challenge" where players are tasked with creating a unique puzzle in the span of 24 hours (or so). Puzzles are due on Friday night. Puzzles typically come in the form of a single square image with a title, and a small blurb which can be used to include a prompt, puzzle specifications, or a clue sequence.
 1d1p is lead by **RAZ369** and **sus**.
 
 ## About the app
