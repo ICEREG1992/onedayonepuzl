@@ -13,7 +13,7 @@ firebase.analytics();
 
 var database = firebase.database();
 
-console.log("Just so you know, write access is False to the database, so trying anything is pointless.");
+console.log("Pls dont be mean to my database");
 
 function moveWeeksToPushId() {
 	database.ref("weeks").once("value").then(function(snapshot) {
@@ -38,5 +38,36 @@ function repostWeek(number) {
 		snapshot.forEach(function(week) {
 			database.ref('weeks').push(week.val());
 		})
+	});
+}
+
+function postPuzzle() {
+	database.ref("weeks").orderByChild('week').equalTo(number).once('value').then(function(snapshot) {
+		if (snapshot.hasChild('week')) {
+			// week already exists, push to puzzles
+			update = {};
+
+			week_num = document.getElementById('create-week').value;
+			week = "0" + week_num ? week_num < 10 : week_num;
+
+			artistName = document.getElementById('create-author').value;
+			update["/title"] = document.getElementById('create-title').value;
+			update["/info"] = document.getElementById('create-info').value;
+			update["/image"] = document.getElementById('create-image').value;
+			database.ref('weeks/' + week + '/puzzles/' + artistName).update(update);
+		} else {
+			// week does not exist, create week
+			update = {};
+
+			week_num = document.getElementById('create-week').value;
+			week = "0" + week_num ? week_num < 10 : week_num;
+			
+			artistName = document.getElementById('create-author').value;
+			update["/puzzles/" + artistName + "/title"] = document.getElementById('create-title').value;
+			update["/puzzles/" + artistName + "/info"] = document.getElementById('create-info').value;
+			update["/puzzles/" + artistName + "/image"] = document.getElementById('create-image').value;
+			update["/week"] = week_num;
+			database.ref('weeks/' + week).update(update);
+		}
 	});
 }

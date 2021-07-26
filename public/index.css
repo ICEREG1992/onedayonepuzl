@@ -177,3 +177,42 @@ a#all-puzzles-link, a#go-back-link {
 	color: #2D2327;
 }
 
+#create {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: min-content;
+	margin-top: 32px;
+}
+
+input {
+	font-size: 20px;
+}
+
+#create-week {
+	width: 8%;
+	max-width: 70px;
+	margin-bottom: 20px;
+}
+
+#create-author, #create-title {
+	width: 30%;
+	max-width: 260px;
+}
+
+#create-info {
+	width: 80%;
+	height: 200px;
+	max-width: 700px;
+}
+
+#create-image {
+	width: 40%;
+	max-width: 346px;
+}
+
+#create-submit {
+	margin-top: 20px;
+	width: 16%;
+	max-width: 126px;
+}
