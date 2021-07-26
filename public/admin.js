@@ -1,13 +1,13 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyDBoX2m8Y2bKSDKgEmV0QI9wlJpyL84eTo",
-  authDomain: "onedayonepuzl.firebaseapp.com",
-  databaseURL: "https://onedayonepuzl.firebaseio.com",
-  projectId: "onedayonepuzl",
-  storageBucket: "onedayonepuzl.appspot.com",
-  messagingSenderId: "32555065444",
-  appId: "1:32555065444:web:d88428ba681638c2a63f71",
-  measurementId: "G-TGRR5W87BB"
-};
+var firebaseConfig = {
+    apiKey: "AIzaSyDBoX2m8Y2bKSDKgEmV0QI9wlJpyL84eTo",
+    authDomain: "onedayonepuzl.firebaseapp.com",
+    databaseURL: "https://onedayonepuzl.firebaseio.com",
+    projectId: "onedayonepuzl",
+    storageBucket: "onedayonepuzl.appspot.com",
+    messagingSenderId: "32555065444",
+    appId: "1:32555065444:web:d88428ba681638c2a63f71",
+    measurementId: "G-TGRR5W87BB"
+  };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
@@ -41,14 +41,16 @@ function repostWeek(number) {
 	});
 }
 
-function postPuzzle() {
-	database.ref("weeks").orderByChild('week').equalTo(number).once('value').then(function(snapshot) {
+function postPuzzle(elem) {
+	week_num = document.getElementById('create-week').value;
+	return database.ref("weeks").orderByChild('week').equalTo(week_num).once('value').then(function(snapshot) {
+		console.log("Snapshot returned")
 		if (snapshot.hasChild('week')) {
 			// week already exists, push to puzzles
 			update = {};
 
 			week_num = document.getElementById('create-week').value;
-			week = "0" + week_num ? week_num < 10 : week_num;
+			week = week_num < 10 ? "0" + week_num : "" + week_num;
 
 			artistName = document.getElementById('create-author').value;
 			update["/title"] = document.getElementById('create-title').value;
@@ -60,7 +62,7 @@ function postPuzzle() {
 			update = {};
 
 			week_num = document.getElementById('create-week').value;
-			week = "0" + week_num ? week_num < 10 : week_num;
+			week = week_num < 10 ? "0" + week_num : "" + week_num;
 			
 			artistName = document.getElementById('create-author').value;
 			update["/puzzles/" + artistName + "/title"] = document.getElementById('create-title').value;
@@ -69,5 +71,7 @@ function postPuzzle() {
 			update["/week"] = week_num;
 			database.ref('weeks/' + week).update(update);
 		}
+	}).then(function() {
+		return false;
 	});
 }

@@ -12,7 +12,7 @@
       	<a id="header-text" href="./">1d1p Admin</a>
       </div>
       <div id="create">
-        <form>
+        <form onsubmit="postPuzzle(); return false;">
           <input id="create-week" type="number" placeholder="week">
           <div id="author-title">
             <input id="create-author" type="text" placeholder="author">
@@ -27,9 +27,9 @@
     </div>
     
     <!-- Scripts -->
-    <script src="/__/firebase/8.1.1/firebase-app.js"></script>
-    <script src="/__/firebase/8.1.1/firebase-database.js"></script>
-    <script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
     <script src="./admin.js"></script>
   </body>
 </html>
