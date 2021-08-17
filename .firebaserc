@@ -1,5 +1,6 @@
 {
   "projects": {
-    "onedayonepuzl": "onedayonepuzl"
+    "onedayonepuzl": "onedayonepuzl",
+    "default": "onedayonepuzl"
   }
 }

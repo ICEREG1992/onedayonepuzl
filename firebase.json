@@ -9,12 +9,15 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [ {
-      "source": "/puzzle",
-      "destination": "/puzzle.html"
-    }, {
-      "source": "/list",
-      "destination": "/list.html"
-    }]
+    "rewrites": [
+      {
+        "source": "/list",
+        "destination": "/list.html"
+      },
+      {
+        "source": "/puzzle",
+        "function": "host"
+      }
+    ]
   }
 }
