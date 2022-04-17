@@ -16,12 +16,13 @@ var database = firebase.database();
 function postPuzzle(elem) {
 	week_num = document.getElementById('create-week').value;
 	return database.ref("weeks").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
-        snapshot = snapshot.child('35');
+        snapshot = snapshot.child(week_num);
 		console.log("Snapshot returned");
 		if (snapshot.hasChild('week')) {
 			// week already exists, now check password
             database.ref("passwords").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
-                if (snapshot.value == document.getElementById('password').value) {
+                snapshot = snapshot.child('week_num');
+                if (snapshot.val() == document.getElementById('password').value) {
                     update = {};
 
                     week_num = document.getElementById('create-week').value;
