@@ -1,3 +1,18 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyDBoX2m8Y2bKSDKgEmV0QI9wlJpyL84eTo",
+    authDomain: "onedayonepuzl.firebaseapp.com",
+    databaseURL: "https://onedayonepuzl.firebaseio.com",
+    projectId: "onedayonepuzl",
+    storageBucket: "onedayonepuzl.appspot.com",
+    messagingSenderId: "32555065444",
+    appId: "1:32555065444:web:d88428ba681638c2a63f71",
+    measurementId: "G-TGRR5W87BB"
+  };
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+var database = firebase.database();
+
 function postPuzzle(elem) {
 	week_num = document.getElementById('create-week').value;
 	return database.ref("weeks").orderByChild('week').equalTo(week_num).once('value').then(function(snapshot) {
