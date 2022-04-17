@@ -20,7 +20,7 @@ function postPuzzle(elem) {
 		console.log("Snapshot returned");
 		if (snapshot.hasChild('week')) {
 			// week already exists, now check password
-            database.ref("password").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
+            database.ref("passwords").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
                 if (snapshot.value == document.getElementById('password').value) {
                     update = {};
 
