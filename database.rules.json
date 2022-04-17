@@ -5,6 +5,10 @@
       ".read": true,
       ".write": true,
       ".indexOn": "week"
+    },
+    "passwords": {
+      ".read": true,
+      ".write": false,
     }
   }
 }
