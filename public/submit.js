@@ -16,7 +16,8 @@ var database = firebase.database();
 function postPuzzle(elem) {
 	week_num = document.getElementById('create-week').value;
 	return database.ref("weeks").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
-		console.log("Snapshot returned")
+        snapshot = snapshot.child('35');
+		console.log("Snapshot returned");
 		if (snapshot.hasChild('week')) {
 			// week already exists, now check password
             database.ref("password").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
