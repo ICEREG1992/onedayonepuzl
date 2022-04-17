@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <title>1d1p</title>
+  </head>
+  <body>
+    <div id="page-content">
+      <div id="header">
+      	<a id="header-text" href="./">Submit a Puzzle</a>
+      </div>
+      <div id="create">
+        <form onsubmit="postPuzzle(); return false;">
+          <input id="create-week" type="number" placeholder="week">
+          <input id="password" type="text" placeholder="password">
+          <div id="author-title">
+            <input id="create-author" type="text" placeholder="author">
+            <input id="create-title" type="text" placeholder="title">
+          </div>
+          <textarea id="create-info" type="text" placeholder="info"></textarea>
+          <input id="create-image" type="url" placeholder="image">
+          <br>
+          <input id="create-submit" type="submit" value="post">
+        </form>
+        <div id="md">
+            <br><br>
+            <p>
+                markdown help
+            </p>
+            <p>
+                all standard markdown rules are supported like **bold**, *italic*, [hyperlinks](link), etc.
+                <br>
+                you can also use discord-style spoilers and code-blocks by using the expected ||text|| and ```text```
+            </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+    <script src="./submit.js"></script>
+  </body>
+</html>

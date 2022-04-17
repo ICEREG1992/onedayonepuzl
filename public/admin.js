@@ -40,38 +40,3 @@ function repostWeek(number) {
 		})
 	});
 }
-
-function postPuzzle(elem) {
-	week_num = document.getElementById('create-week').value;
-	return database.ref("weeks").orderByChild('week').equalTo(week_num).once('value').then(function(snapshot) {
-		console.log("Snapshot returned")
-		if (snapshot.hasChild('week')) {
-			// week already exists, push to puzzles
-			update = {};
-
-			week_num = document.getElementById('create-week').value;
-			week = week_num < 10 ? "0" + week_num : "" + week_num;
-
-			artistName = document.getElementById('create-author').value;
-			update["/title"] = document.getElementById('create-title').value;
-			update["/info"] = document.getElementById('create-info').value;
-			update["/image"] = document.getElementById('create-image').value;
-			database.ref('weeks/' + week + '/puzzles/' + artistName).update(update);
-		} else {
-			// week does not exist, create week
-			update = {};
-
-			week_num = document.getElementById('create-week').value;
-			week = week_num < 10 ? "0" + week_num : "" + week_num;
-			
-			artistName = document.getElementById('create-author').value;
-			update["/puzzles/" + artistName + "/title"] = document.getElementById('create-title').value;
-			update["/puzzles/" + artistName + "/info"] = document.getElementById('create-info').value;
-			update["/puzzles/" + artistName + "/image"] = document.getElementById('create-image').value;
-			update["/week"] = week_num;
-			database.ref('weeks/' + week).update(update);
-		}
-	}).then(function() {
-		return false;
-	});
-}
