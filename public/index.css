@@ -12,7 +12,7 @@ body {
 	font-family: Comfortaa;
 	display: flex;
 	justify-content: center;
-	background-color: #5E807F
+	background-color: #dbdbdb
 }
 
 #page-content {
@@ -22,7 +22,7 @@ body {
 }
 
 #header, #header-text {
-	color: #F4F6F6;
+	color: #62466B;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 64px;
@@ -47,27 +47,35 @@ body {
 	margin-bottom: 6px;
 }
 
+#all-puzzles p {
+	margin-bottom: 0;
+}
+
+a#all-puzzles-link, a#go-back-link, #submit-linkc {
+	color: #493350;
+}
+
 #about {
 
 }
 
 #open-about {
-	color: #2D2327;
+	color: #493350;
 	cursor: pointer;
 	text-decoration: underline;
 }
 
 #about-text {
 	font-size: 18px;
-	color: #2D2327;
+	color: #334747;
 }
 
 a {
-	color: #62466B;
+	color: #52807e;
 }
-
+/* #5E807F #F4F6F6 #2D2327 #62466B  */
 a#first {
-	color: #4e3856;
+	color: #3e5756;
 	font-size: 24px;
 
 }
@@ -167,14 +175,6 @@ code {
 
 .puzzle span {
 	font-size: 18px;
-}
-
-#all-puzzles p {
-	margin-bottom: 0;
-}
-
-a#all-puzzles-link, a#go-back-link {
-	color: #2D2327;
 }
 
 #create {
