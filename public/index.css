@@ -216,3 +216,9 @@ input {
 	width: 16%;
 	max-width: 126px;
 }
+
+#status {
+	font-size: 24px;
+	padding: 18px 0px;
+	font-weight: bold;
+}
