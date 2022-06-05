@@ -67,7 +67,10 @@ function onComplete(error) {
     if (error) {
         updateStatus(error, "Red");
     } else {
-        updateStatus("Puzzle uploaded!", "Green");
+        week_num = document.getElementById('create-week').value;
+        week = week_num < 10 ? "0" + week_num : "" + week_num;
+        author = document.getElementById('create-author').value;
+        updateStatus("Puzzle uploaded!<br><a style='color=black' href='../puzzle?week=" + week + "&id=" + author + "'>Go to your puzzle</a>", "Green");
     }
 }
 
