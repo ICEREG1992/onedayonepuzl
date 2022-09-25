@@ -37,7 +37,7 @@ body {
 }
 
 #weeks {
-	column-count: 2;
+	column-count: 3;
 	width: 30%;
 	min-width: 300px;
 	max-width: 400px;
