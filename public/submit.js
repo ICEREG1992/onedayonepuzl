@@ -18,7 +18,7 @@ function postPuzzle(elem) {
     try {
         return database.ref("passwords").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
             snapshot = snapshot.child(week_num);
-            if (snapshot.val() == document.getElementById('password').value) {
+            if (snapshot.val() == document.getElementById('password').value.toLowerCase()) {
                 return database.ref("weeks").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
                     snapshot = snapshot.child(week_num);
                     console.log("Snapshot returned");
