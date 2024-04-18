@@ -25,12 +25,12 @@ exports.host = functions.https.onRequest((req, res) => {
             if (snapshot.exists()) {
                 // populate meta tags
                 out = "";
-                out += '<meta property="og:type" content="website">\n';
-                out += '<meta property="og:site_name" content="One Day One Puzl" />\n';
-                out += '<meta property="og:title" content="' + snapshot.child("title").val() + ' by ' + snapshot.key + '" />\n';
-                out += '<meta property="og:description" content="Another excellent 1d1p submission made by ' + snapshot.key + '!" />\n';
-                out += '<meta property="og:url" content="https://onedayonepuzl.web.app/puzzle?week=' + week + '&id=' + id + '" />\n';
-                out += '<meta property="og:image" content="' + snapshot.child("image").val() + '" />\n';
+                out += '    <meta property="og:type" content="website">\n';
+                out += '    <meta property="og:site_name" content="One Day One Puzl" />\n';
+                out += '    <meta property="og:title" content="' + snapshot.child("title").val() + ' by ' + snapshot.key + '" />\n';
+                out += '    <meta property="og:description" content="Another excellent 1d1p submission made by ' + snapshot.key + '!" />\n';
+                out += '    <meta property="og:url" content="https://onedayonepuzl.web.app/puzzle?week=' + week + '&id=' + id + '" />\n';
+                out += '    <meta property="og:image" content="' + snapshot.child("image").val() + '" />\n';
                 // live swap into html
                 indexHTML = indexHTML.replace('<meta name="functions-insert-dynamic-og">', out);
             } else {
@@ -44,12 +44,12 @@ exports.host = functions.https.onRequest((req, res) => {
             if (snapshot.exists()) {
                 // populate meta tags
                 out = "";
-                out += '<meta property="og:type" content="website">\n';
-                out += '<meta property="og:site_name" content="One Day One Puzl" />\n';
-                out += '<meta property="og:title" content="Week ' + snapshot.child("week").val() + ' Puzzles List" />\n';
-                out += '<meta property="og:description" content="All of the excellent 1d1p submissions made for week ' + snapshot.child("week").val() + ' by participants!" />\n';
-                out += '<meta property="og:url" content="https://onedayonepuzl.web.app/puzzle?week=' + week + '" />\n';
-                out += '<meta property="og:image" content="https://onedayonepuzl.web.app/1d1p.png" />\n';
+                out += '    <meta property="og:type" content="website">\n';
+                out += '    <meta property="og:site_name" content="One Day One Puzl" />\n';
+                out += '    <meta property="og:title" content="Week ' + snapshot.child("week").val() + ' Puzzles List" />\n';
+                out += '    <meta property="og:description" content="All of the excellent 1d1p submissions made for week ' + snapshot.child("week").val() + ' by participants!" />\n';
+                out += '    <meta property="og:url" content="https://onedayonepuzl.web.app/puzzle?week=' + week + '" />\n';
+                out += '    <meta property="og:image" content="https://onedayonepuzl.web.app/1d1p.png" />\n';
                 // live swap into html
                 indexHTML = indexHTML.replace('<meta name="functions-insert-dynamic-og">', out);
                 console.log("html swapped");
