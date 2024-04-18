@@ -1,5 +1,5 @@
 @font-face {
-	font-family: Comfortaa;
+	font-family: Arial, Helvetica, sans-serif;
 	src: url(Comfortaa-VariableFont_wght.ttf);
 }
 
@@ -12,7 +12,7 @@ body {
 	font-family: Comfortaa;
 	display: flex;
 	justify-content: center;
-	background-color: #dbdbdb
+	background-color: black;
 }
 
 #page-content {
@@ -22,13 +22,15 @@ body {
 }
 
 #header, #header-text {
-	color: #62466B;
+	font-family: "Rubik Mono One", monospace;
+	color: white;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 64px;
 }
 
 #page-body {
+	font-family: "Rubik Mono One", monospace;
 	height: 180px;
 	margin-top: 20px;
 	display: flex;
@@ -36,7 +38,8 @@ body {
 	font-size: 22px;
 }
 
-#weeks {
+div#weeks {
+	font-family: "Sono", "Arial", monospace;
 	column-count: 3;
 	width: 30%;
 	min-width: 300px;
@@ -52,30 +55,31 @@ body {
 }
 
 a#all-puzzles-link, a#go-back-link, #submit-linkc {
-	color: #493350;
+	color: white;
 }
 
 #about {
-	color: #493350;
+	color: white;
 }
 
 #open-about {
-	color: #493350;
+	color: white;
 	cursor: pointer;
 	text-decoration: underline;
 }
 
 #about-text {
+	font-family: "Sono", "Arial", monospace;
 	font-size: 18px;
-	color: #334747;
+	color: #623CEA;
 }
 
 a {
-	color: #52807e;
+	color: #06BCC1;
 }
 /* #5E807F #F4F6F6 #2D2327 #62466B  */
 a#first {
-	color: #3e5756;
+	color: #00ffff;
 	font-size: 24px;
 
 }
