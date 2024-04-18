@@ -33,6 +33,7 @@ exports.host = functions.https.onRequest((req, res) => {
                 out += '    <meta property="og:image" content="' + snapshot.child("image").val() + '" />\n';
                 // live swap into html
                 indexHTML = indexHTML.replace('<meta name="functions-insert-dynamic-og">', out);
+                console.log("html swapped");
             } else {
                 indexHTML = fs.readFileSync('./hosting/404.html').toString();
             }
