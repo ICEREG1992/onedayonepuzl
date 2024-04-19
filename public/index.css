@@ -31,7 +31,6 @@ body {
 
 #page-body {
 	font-family: "Rubik Mono One", monospace;
-	height: 180px;
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
@@ -40,14 +39,19 @@ body {
 
 div#weeks {
 	font-family: "Sono", "Arial", monospace;
-	column-count: 3;
-	width: 30%;
+	width: 60%;
 	min-width: 300px;
-	max-width: 400px;
+	max-width: 600px;
+	display:grid;
+	grid-template-columns: repeat(auto-fill, 150px);
+	grid-template-rows: repeat(auto-fill, 30px);
+	grid-auto-flow: row;
+	min-height: 70%;
 }
 
 .week {
 	margin-bottom: 6px;
+	width: 120px;
 }
 
 #all-puzzles p {
