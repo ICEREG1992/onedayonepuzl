@@ -194,6 +194,7 @@ code {
 
 input {
 	font-size: 20px;
+	font-family: "Sono", "Arial", monospace;
 }
 
 #create-week {
