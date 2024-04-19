@@ -1,5 +1,4 @@
 const functions = require("firebase-functions");
-const onRequest = require("firebase-functions/v2/https");
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 const fs = require('fs');
@@ -12,7 +11,7 @@ const fs = require('fs');
 //   response.send("Hello from Firebase!");
 // });
 
-exports.host = onRequest((req, res) => {
+exports.host = functions.https.onRequest((req, res) => {
 	// const userAgent = req.headers['user-agent'].toLowerCase();
 	let indexHTML = fs.readFileSync('./hosting/puzzle.html').toString();
 	// const path = req.path ? req.path.split('/') : req.path;
