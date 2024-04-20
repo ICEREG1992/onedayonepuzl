@@ -40,15 +40,17 @@ body {
 div#weeks {
 	font-family: "Sono", "Arial", monospace;
 	width: 60%;
-	min-width: 300px;
-	max-width: 600px;
+	width: round(down, 60%, 130px);
+	min-width: 260px;
+	max-width: 650px;
 	min-height: 70%;
-	column-width: 120px;
+	column-width: 130px;
+	column-gap: 0;
 }
 
 .week {
 	margin-bottom: 6px;
-	width: 120px;
+	width: 130px;
 }
 
 #all-puzzles p {
