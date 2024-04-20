@@ -226,7 +226,7 @@ input {
 }
 
 #create-url {
-	width: 40%;
+	width: 12vw;
 	max-width: 346px;
 	margin-right: 3px;
 }
@@ -240,6 +240,7 @@ input {
 #image-input, #author-title {
 	display: flex;
 	width: max-content;
+	height: 30px;
 }
 
 #browse-image {
@@ -255,4 +256,8 @@ input {
 
 #md {
 	color:#B33951;
+}
+
+#cancel-upload {
+	color: white;
 }

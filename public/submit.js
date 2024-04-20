@@ -17,7 +17,6 @@ var storage = firebase.storage();
 function postPuzzle(elem) {
 	week_num = document.getElementById('create-week').value;
     try {
-        snapshot = snapshot.child(week_num);
         return database.ref("weeks").orderByKey().equalTo(week_num).once('value').then(function(snapshot) {
             snapshot = snapshot.child(week_num);
             console.log("Snapshot returned");
@@ -83,6 +82,13 @@ function onComplete(error) {
 
 function disableUrl() {
     document.getElementById('create-url').disabled = true;
+    document.getElementById('cancel-upload').hidden = false;
+}
+
+function cancelUpload() {
+    document.getElementById('browse-image').value = "" 
+    document.getElementById('cancel-upload').hidden = true;
+    document.getElementById('create-url').disabled = false;
 }
 
 function updateStatus(text, color) {
