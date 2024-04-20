@@ -261,3 +261,15 @@ input {
 #cancel-upload {
 	color: white;
 }
+
+#preview {
+	position: absolute;
+	user-select: none;
+	pointer-events: none;
+	max-width: 200px;
+}
+
+#preview img {
+	width:200px;
+	border: 3px solid white;
+}

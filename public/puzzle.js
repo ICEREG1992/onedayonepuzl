@@ -86,11 +86,22 @@ function loadWeek(week) {
 		snapshot = snapshot.child('puzzles');
 		listElem = document.getElementById('week-puzzles');
 		snapshot.forEach(function(puzzle) {
-			var textElem = document.createElement("a");
-			textElem.setAttribute("class", "puzzle");
-			textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
-			textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
-			listElem.appendChild(textElem);
+			storage.ref(week + '/' + puzzle.key + '.' + puzzle.child('image').val()).getDownloadURL().then(url => {
+				var textElem = document.createElement("a");
+				textElem.setAttribute("class", "puzzle");
+				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
+				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
+				textElem.setAttribute("onmousemove", "showPreview(event,'" + url + "')");
+				textElem.setAttribute("onmouseleave", "hidePreview()");
+				listElem.appendChild(textElem);
+			}).catch(e => {
+				// image couldn't be found, create without preview handler
+				var textElem = document.createElement("a");
+				textElem.setAttribute("class", "puzzle");
+				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
+				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
+				listElem.appendChild(textElem);
+			});
 		});
 	});
 }
@@ -119,4 +130,20 @@ function htmlToElement(html) {
 
 function reveal(elem) {
 	elem.setAttribute('class', 'spoiler clicked');
+}
+
+function showPreview(e, u) {
+	console.log(e);
+	p = document.getElementById('preview');
+	p.hidden = false;
+	p.style.left = e.pageX + 'px';
+	p.style.top = e.pageY + 'px';
+	var imgElem = document.createElement('img');
+	imgElem.setAttribute('src', u);
+	p.replaceChildren(imgElem);
+}
+
+function hidePreview() {
+	p = document.getElementById('preview');
+	p.hidden = true;
 }
