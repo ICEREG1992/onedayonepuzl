@@ -153,7 +153,7 @@ a#first {
 
 .clicked {
 	background-color: lightgrey;
-	color: #2D2327;
+	color: #B33951;
 }
 
 .spoiler a {
@@ -162,25 +162,25 @@ a#first {
 }
 
 .spoiler.clicked a {
-	color: #62466B;
+	color: #B33951;
 	pointer-events: all;
 }
 
 span.clicked:hover {
 	background-color: lightgrey;
-	color: #2D2327;
+	color: #bbbbbb;
 }
 
 code {
 	display: inline-flex;
 	border-radius: 6px;
-	border: 2px solid #2D2327;
+	border: 2px solid #bbbbbb;
 	background-color: gray;
 	padding: 3px;
 }
 
 #puzzles {
-	color: #2D2327;
+	color: #bbbbbb;
 }
 
 .puzzle span {
@@ -202,6 +202,7 @@ input {
 
 #create-week {
 	width: 8%;
+	min-width: 100px;
 	max-width: 70px;
 	margin-bottom: 20px;
 }
@@ -229,6 +230,7 @@ input {
 }
 
 #status {
+	font-family: "Sono", "Arial", monospace;
 	font-size: 24px;
 	padding: 18px 0px;
 	font-weight: bold;
