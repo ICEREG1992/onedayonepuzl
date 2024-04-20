@@ -12,6 +12,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var database = firebase.database();
+var storage = firebase.storage();
 
 function postPuzzle(elem) {
 	week_num = document.getElementById('create-week').value;
@@ -30,7 +31,14 @@ function postPuzzle(elem) {
                 artistName = document.getElementById('create-author').value;
                 update["/title"] = document.getElementById('create-title').value;
                 update["/info"] = document.getElementById('create-info').value;
-                update["/image"] = document.getElementById('create-image').value;
+                if (document.getElementById('browse-image').value) {
+                    const file = document.getElementById('browse-image').files[0];
+                    const fileExtension = file.name.split('.').pop();
+                    storage.ref(week_num + '/' + artistName + '.' + fileExtension).put(file);
+                    update["/image"] = fileExtension;
+                } else {
+                    update["/image"] = document.getElementById('create-url').value;
+                }
                 return database.ref('weeks/' + week + '/puzzles/' + artistName).update(update, onComplete);
             } else {
                 // week doesn't exist, so create full week object
@@ -42,7 +50,14 @@ function postPuzzle(elem) {
                 artistName = document.getElementById('create-author').value;
                 update["/puzzles/" + artistName + "/title"] = document.getElementById('create-title').value;
                 update["/puzzles/" + artistName + "/info"] = document.getElementById('create-info').value;
-                update["/puzzles/" + artistName + "/image"] = document.getElementById('create-image').value;
+                if (document.getElementById('browse-image').value) {
+                    const file = document.getElementById('browse-image').files[0];
+                    const fileExtension = file.name.split('.').pop();
+                    storage.ref(week_num + '/' + artistName + '.' + fileExtension).put(file);
+                    update["/puzzles/" + artistName + "/image"] = fileExtension;
+                } else {
+                    update["/puzzles/" + artistName + "/image"] = document.getElementById('create-url').value;
+                }
                 update["/week"] = week_num;
                 return database.ref('weeks/' + week).update(update, onComplete);
             }
@@ -64,6 +79,10 @@ function onComplete(error) {
         author = document.getElementById('create-author').value;
         updateStatus("Puzzle uploaded!<br><a style='color=black' href='../puzzle?week=" + week + "&id=" + author + "'>Go to your puzzle</a>", "Green");
     }
+}
+
+function disableUrl() {
+    document.getElementById('create-url').disabled = true;
 }
 
 function updateStatus(text, color) {

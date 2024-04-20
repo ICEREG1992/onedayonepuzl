@@ -11,8 +11,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-var storage = firebase.storage();
 var database = firebase.database();
+var storage = firebase.storage();
 var solution;
 
 // get all queries from the url
@@ -49,17 +49,29 @@ function loadPuzzle(week, id) {
 		document.getElementById('week-header').innerHTML = "week " + snapshot.child('week').val();
 
 		snapshot = snapshot.child('puzzles').child(id);
-		// build image element, start by getting url
-		storage.ref(snapshot.child('image').val()).getDownloadURL().then((url) => {
-			var imgElem = document.createElement("img");
-			imgElem.setAttribute("src", url);
-			imgElem.setAttribute('onerror', "this.src='./slosserr.png'");
-			var aElem = document.createElement("a");
-			aElem.setAttribute('href', url);
-			aElem.appendChild(imgElem);
-			document.getElementById('puzzle-image').appendChild(aElem);
-		})
-		
+		// build image element, depending on file type
+		switch (snapshot.child('image').val()) {
+			case 'png':
+			case 'jpg':
+			case 'jpeg':
+			case 'gif':
+				storage.ref(week + '/' + id + '.' + snapshot.child('image').val()).getDownloadURL().then((url) => {
+					var imgElem = document.createElement("img");
+					imgElem.setAttribute("src", url);
+					imgElem.setAttribute('onerror', "this.src='./slosserr.png'");
+					var aElem = document.createElement("a");
+					aElem.setAttribute('href', url);
+					aElem.appendChild(imgElem);
+					document.getElementById('puzzle-image').appendChild(aElem);
+				})
+				break;
+			default:
+				var aElem = document.createElement("a");
+				aElem.setAttribute('href', snapshot.child('image').val());
+				aElem.innerHTML = "Click this link to visit the puzzle's URL";
+				document.getElementById('puzzle-image').appendChild(aElem);
+				break;
+		}
 		// add title and info
 		document.getElementById('puzzle-title').innerHTML = "<b>" + snapshot.child('title').val() + "</b> by <b>" + snapshot.key + "</b>";
 		document.getElementById('puzzle-info').appendChild(processInfo(snapshot.child('info').val())); 

@@ -3,16 +3,22 @@
 	src: url(Comfortaa-VariableFont_wght.ttf);
 }
 
-body, html {
-	margin: 0;
+html {
+	background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+	background-size:cover;
+	background-attachment: fixed;
 	height: 100%;
 }
 
+body, html {
+	margin: 0;
+}
+
 body {
-	font-family: Comfortaa;
+	min-height: 100%;
+	font-family: Sono;
 	display: flex;
 	justify-content: center;
-	background-color: black;
 }
 
 #page-content {
@@ -208,8 +214,9 @@ input {
 }
 
 #create-author, #create-title {
-	width: 30%;
+	width: 40%;
 	max-width: 260px;
+	margin-right: 3px;
 }
 
 #create-info {
@@ -218,9 +225,10 @@ input {
 	max-width: 700px;
 }
 
-#create-image {
+#create-url {
 	width: 40%;
 	max-width: 346px;
+	margin-right: 3px;
 }
 
 #create-submit {
@@ -229,9 +237,22 @@ input {
 	max-width: 126px;
 }
 
+#image-input, #author-title {
+	display: flex;
+	width: max-content;
+}
+
+#browse-image {
+	color:white;
+}
+
 #status {
 	font-family: "Sono", "Arial", monospace;
 	font-size: 24px;
 	padding: 18px 0px;
 	font-weight: bold;
+}
+
+#md {
+	color:#B33951;
 }

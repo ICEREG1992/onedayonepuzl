@@ -29,7 +29,10 @@
           </div>
           <textarea id="create-info" type="text" placeholder="info"></textarea>
           <br>
-          <input id="create-image" type="url" placeholder="image">
+          <div id="image-input">
+            <input id="create-url" type="url" placeholder="url">
+            <input id="browse-image" type="file" onchange="disableUrl()" value="upload image...">
+          </div>
           <br>
           <input id="create-submit" type="submit" value="post">
         </form>
@@ -49,7 +52,7 @@
                 double line-breaks look really big and bad, use a single line break to create separate paragraphs
             </p>
             <p>
-                title, info, and image submission elements can all be edited by simply resubmitting the puzzle under the same name.
+                title, info, and url/image submission elements can all be edited by simply resubmitting the puzzle under the same name.
             </p>
         </div>
       </div>
@@ -59,6 +62,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
     <script src="./submit.js"></script>
   </body>
 </html>
