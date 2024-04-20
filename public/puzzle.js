@@ -11,6 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+var storage = firebase.storage();
 var database = firebase.database();
 var solution;
 
@@ -48,13 +49,18 @@ function loadPuzzle(week, id) {
 		document.getElementById('week-header').innerHTML = "week " + snapshot.child('week').val();
 
 		snapshot = snapshot.child('puzzles').child(id);
-		var imgElem = document.createElement("img");
-		imgElem.setAttribute("src", snapshot.child('image').val());
-		imgElem.setAttribute('onerror', "this.src='./slosserr.png'");
-		var aElem = document.createElement("a");
-		aElem.setAttribute('href', snapshot.child('image').val());
-		aElem.appendChild(imgElem);
-		document.getElementById('puzzle-image').appendChild(aElem);
+		// build image element, start by getting url
+		storage.ref(snapshot.child('image').val()).getDownloadURL().then((url) => {
+			var imgElem = document.createElement("img");
+			imgElem.setAttribute("src", url);
+			imgElem.setAttribute('onerror', "this.src='./slosserr.png'");
+			var aElem = document.createElement("a");
+			aElem.setAttribute('href', url);
+			aElem.appendChild(imgElem);
+			document.getElementById('puzzle-image').appendChild(aElem);
+		})
+		
+		// add title and info
 		document.getElementById('puzzle-title').innerHTML = "<b>" + snapshot.child('title').val() + "</b> by <b>" + snapshot.key + "</b>";
 		document.getElementById('puzzle-info').appendChild(processInfo(snapshot.child('info').val())); 
 		solution = snapshot.child('solution').val();
