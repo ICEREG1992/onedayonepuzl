@@ -66,6 +66,15 @@ function loadPuzzle(week, id) {
 					document.getElementById('puzzle-image').appendChild(aElem);
 				})
 				break;
+			case 'txt':
+				storage.ref(week + '/' + id + '.' + snapshot.child('image').val()).getDownloadURL().then((url) => {
+					var aElem = document.createElement("a");
+					aElem.setAttribute('href', url);
+					aElem.innerHTML = "Click this link to download the puzzle's text file.";
+					aElem.appendChild(imgElem);
+					document.getElementById('puzzle-image').appendChild(aElem);
+				})
+				break;
 			default:
 				var aElem = document.createElement("a");
 				aElem.setAttribute('href', snapshot.child('image').val());
