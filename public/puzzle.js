@@ -101,8 +101,10 @@ function loadWeek(week) {
 				textElem.setAttribute("class", "puzzle");
 				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
 				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
-				textElem.setAttribute("onmousemove", "showPreview(event,'" + url + "')");
-				textElem.setAttribute("onmouseleave", "hidePreview()");
+				if (puzzle.child('image').val() !== "txt") {
+					textElem.setAttribute("onmousemove", "showPreview(event,'" + url + "')");
+					textElem.setAttribute("onmouseleave", "hidePreview()");
+				}
 				listElem.appendChild(textElem);
 			}).catch(e => {
 				// image couldn't be found, create without preview handler
