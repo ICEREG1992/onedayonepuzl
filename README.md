@@ -2,6 +2,8 @@
 1d1p, or One Day One Puzl, is a "weekly" "puzzle" "challenge" where players are tasked with creating a unique puzzle in the span of 24 hours (or so). Puzzles are due on Friday night. Puzzles typically come in the form of a single square image with a title, and a small blurb which can be used to include a prompt, puzzle specifications, or a clue sequence.
 1d1p is lead by **RAZ369** and **sus**.
 
+The site is available at <https://onedayonepuzl.web.app/>.
+
 ## About the app
 This repo holds a simple web app UI for viewing past submissions to 1d1p and utilizes Firebase as a store of data. The external Firebase Realtime Database in use has all write access turned to false, so all the app does is connect to the service and read information. All additions of information are made through the Firebase Web Console.
 
