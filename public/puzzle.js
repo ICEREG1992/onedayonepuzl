@@ -71,7 +71,6 @@ function loadPuzzle(week, id) {
 					var aElem = document.createElement("a");
 					aElem.setAttribute('href', url);
 					aElem.innerHTML = "Click this link to download the puzzle's text file.";
-					aElem.appendChild(imgElem);
 					document.getElementById('puzzle-image').appendChild(aElem);
 				})
 				break;
