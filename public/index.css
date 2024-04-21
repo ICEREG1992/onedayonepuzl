@@ -123,9 +123,14 @@ a#first {
 	flex: 35 1 330px;
 }
 
+#puzzle-title {
+	font-family: "Sono","Arial",monospace;
+}
+
 #puzzle-title b {
 	color: #B33951;
-	font-size: 24px;
+	font-size: 30px;
+	font-weight: 800;
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
@@ -174,13 +179,13 @@ a#first {
 
 span.clicked:hover {
 	background-color: lightgrey;
-	color: #bbbbbb;
+	color: #4b1722;
 }
 
 code {
 	display: inline-flex;
 	border-radius: 6px;
-	border: 2px solid #bbbbbb;
+	border: 2px solid #4b1722;
 	background-color: gray;
 	padding: 3px;
 }
