@@ -55,6 +55,7 @@ function loadPuzzle(week, id) {
 			case 'jpg':
 			case 'jpeg':
 			case 'gif':
+			case 'webp':
 				storage.ref(week + '/' + id + '.' + snapshot.child('image').val()).getDownloadURL().then((url) => {
 					var imgElem = document.createElement("img");
 					imgElem.setAttribute("src", url);
