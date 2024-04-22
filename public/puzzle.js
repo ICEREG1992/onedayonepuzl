@@ -103,7 +103,7 @@ function loadWeek(week) {
 				textElem.setAttribute("class", "puzzle");
 				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
 				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
-				if (puzzle.child('image').val() !== "txt") {
+				if (puzzle.child('image').val() !== "txt" && puzzle.child('image').val() !== "none") {
 					textElem.setAttribute("onmousemove", "showPreview(event,'" + url + "')");
 					textElem.setAttribute("onmouseleave", "hidePreview()");
 				}
