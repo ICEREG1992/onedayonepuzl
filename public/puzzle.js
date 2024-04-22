@@ -76,6 +76,7 @@ function loadPuzzle(week, id) {
 				break;
 			case 'none':
 				document.getElementById('puzzle-image').remove();
+				break;
 			default:
 				var aElem = document.createElement("a");
 				aElem.setAttribute('href', snapshot.child('image').val());
