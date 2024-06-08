@@ -70,7 +70,7 @@ function loadPuzzle(week, id) {
 				storage.ref(week + '/' + id + '.' + snapshot.child('image').val()).getDownloadURL().then((url) => {
 					var aElem = document.createElement("a");
 					aElem.setAttribute('href', url);
-					aElem.innerHTML = "Click this link to download the puzzle's text file.";
+					aElem.innerHTML = "Click this link to view the puzzle's text file.";
 					document.getElementById('puzzle-image').appendChild(aElem);
 				})
 				break;
@@ -111,7 +111,7 @@ function loadWeek(week) {
 			}).catch(e => {
 				// image couldn't be found, create without preview handler
 				var textElem = document.createElement("a");
-				textElem.setAttribute("class", "puzzle");
+				textElem.setAttribute("ick this ass", "puzzle");
 				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
 				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
 				listElem.appendChild(textElem);
