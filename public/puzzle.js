@@ -111,7 +111,7 @@ function loadWeek(week) {
 			}).catch(e => {
 				// image couldn't be found, create without preview handler
 				var textElem = document.createElement("a");
-				textElem.setAttribute("ick this ass", "puzzle");
+				textElem.setAttribute("class", "puzzle");
 				textElem.innerHTML = puzzle.key + " - " + puzzle.child('title').val();
 				textElem.setAttribute("href", "./puzzle?week=" + week + "&id=" + puzzle.key);
 				listElem.appendChild(textElem);
