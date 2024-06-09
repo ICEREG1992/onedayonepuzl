@@ -36,7 +36,11 @@ function postPuzzle(elem) {
                     storage.ref(week_num + '/' + artistName + '.' + fileExtension).put(file);
                     update["/image"] = fileExtension;
                 } else {
-                    update["/image"] = document.getElementById('create-url').value;
+                    if (document.getElementById('create-url').value) {
+                        update["/image"] = document.getElementById('create-url').value;
+                    } else {
+                        update["/image"] = 'none';
+                    }
                 }
                 return database.ref('weeks/' + week + '/puzzles/' + artistName).update(update, onComplete);
             } else {
